@@ -1,0 +1,18 @@
+package br.com.william.simple_api.service;
+
+import br.com.william.simple_api.dto.CadastroProdutoRequest;
+import br.com.william.simple_api.dto.ProdutoResponse;
+import br.com.william.simple_api.repository.ProdutoRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class ProdutoService {
+
+    private final ProdutoRepository produtoRepository;
+
+    public ProdutoResponse cadastrarProduto(CadastroProdutoRequest cadastroProdutoRequest) {
+        return null;
+    }
+}

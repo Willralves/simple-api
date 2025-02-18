@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/produtos")
@@ -23,7 +20,13 @@ public class ProdutoController {
     public ResponseEntity<ProdutoResponse> cadastrarProduto(@Valid @RequestBody CadastroProdutoRequest cadastroProdutoRequest) {
 
         ProdutoResponse response = produtoService.cadastrarProduto(cadastroProdutoRequest);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoResponse> buscarProdutoPorId(@PathVariable Long id) {
+
+        ProdutoResponse response = produtoService.buscarProdutoPorId(id);
+        return ResponseEntity.ok(response);
     }
 }
